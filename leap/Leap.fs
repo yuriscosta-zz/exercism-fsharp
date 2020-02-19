@@ -1,4 +1,8 @@
 ﻿module Leap
 
 let leapYear (year: int): bool =
-    year % 400 = 0 || (year % 100 <> 0 && year % 4 = 0)
+    let divisableByFour = year % 4 = 0
+    let divisableByHundred = year % 100 = 0
+    let divisableByFourHundred = year % 400 = 0
+
+    divisableByFourHundred || (divisableByFour <> divisableByHundred)
