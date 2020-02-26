@@ -6,15 +6,10 @@ let raindrops =
       (7, "Plong") ]
 
 let convert (number: int): string =
-    let output =
         raindrops
-        |> List.map (fun (k, v) ->
-            if number % k = 0 then v else "")
+        |> List.map (fun (divisor, word) ->
+            if number % divisor = 0 then word else "")
         |> String.concat ""
-
-    match output with
-    | "" -> string number
-    | _ -> output
-
-
-
+        |> function
+            | "" -> string number
+            | sounds -> sounds
